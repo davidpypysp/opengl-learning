@@ -148,7 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="getting_started\shader.frag" />
-    <None Include="getting_started\shader.vs" />
+    <None Include="getting_started\shader.vert" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="getting_started\shader.h" />

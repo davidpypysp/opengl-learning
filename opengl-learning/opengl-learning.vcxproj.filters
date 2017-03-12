@@ -29,9 +29,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="readme.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="getting_started\shader.vs" />
     <None Include="getting_started\shader.frag" />
   </ItemGroup>

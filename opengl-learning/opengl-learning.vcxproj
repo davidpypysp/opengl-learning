@@ -147,9 +147,6 @@
     <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="readme.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="getting_started\shader.frag" />
     <None Include="getting_started\shader.vs" />
   </ItemGroup>

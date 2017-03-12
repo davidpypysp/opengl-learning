@@ -24,16 +24,21 @@
     <ClCompile Include="getting_started\hello_triangle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="getting_started\shader.cpp">
+    <ClCompile Include="getting_started\texture\texture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="getting_started\shader\shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="getting_started\shader.frag" />
-    <None Include="getting_started\shader.vert" />
+    <None Include="getting_started\shader\shader.frag" />
+    <None Include="getting_started\shader\shader.vert" />
+    <None Include="getting_started\texture\texture.vert" />
+    <None Include="getting_started\texture\texture.frag" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="getting_started\shader.h">
+    <ClInclude Include="shader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

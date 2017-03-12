@@ -1,7 +1,6 @@
-#if 1
+#if 0
 
 #include "shader.h"
-
 #include <iostream>
 #include <cmath>
 
@@ -11,8 +10,6 @@
 
 // GLFW
 #include <GLFW/glfw3.h>
-
-
 // Function prototypes
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
 
@@ -48,7 +45,7 @@ int main()
 
 
 	// Build and compile our shader program
-	Shader ourShader("getting_started//shader.vs", "getting_started//shader.frag");
+	Shader ourShader("getting_started/shader/shader.vert", "getting_started/shader/shader.frag");
 
 
 

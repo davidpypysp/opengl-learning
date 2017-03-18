@@ -141,20 +141,36 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="getting_started\camera\camera.cpp" />
+    <ClCompile Include="getting_started\coordinate_systems\coordinate_systems.cpp" />
     <ClCompile Include="getting_started\hello_triangle.cpp" />
     <ClCompile Include="getting_started\hello_window.cpp" />
     <ClCompile Include="getting_started\shader\shader.cpp" />
     <ClCompile Include="getting_started\texture\texture.cpp" />
+    <ClCompile Include="getting_started\transformations\transformations.cpp" />
+    <ClCompile Include="getting_started\transformations\trans_test.cpp" />
+    <ClCompile Include="lighting\color\color.cpp" />
     <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="getting_started\camera\camera.frag" />
+    <None Include="getting_started\camera\camera.vert" />
+    <None Include="getting_started\coordinate_systems\coordinate_systems.frag" />
+    <None Include="getting_started\coordinate_systems\coordinate_systems.vert" />
     <None Include="getting_started\shader\shader.frag" />
     <None Include="getting_started\shader\shader.vert" />
     <None Include="getting_started\texture\texture.frag" />
     <None Include="getting_started\texture\texture.vert" />
+    <None Include="getting_started\transformations\transformations.frag" />
+    <None Include="getting_started\transformations\transformations.vert" />
+    <None Include="lighting\color\color.frag" />
+    <None Include="lighting\color\color.vert" />
+    <None Include="lighting\color\lamp.frag" />
+    <None Include="lighting\color\lamp.vert" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="shader.h" />
+    <ClInclude Include="include\camera.h" />
+    <ClInclude Include="include\shader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

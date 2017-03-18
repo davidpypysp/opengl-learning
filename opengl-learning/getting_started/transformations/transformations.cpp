@@ -12,8 +12,14 @@
 // Other Libs
 #include <SOIL/SOIL.h>
 
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
+
 // Other includes
 #include "include/shader.h"
+
 
 
 // Function prototypes
@@ -51,7 +57,7 @@ int main()
 
 
 	// Build and compile our shader program
-	Shader ourShader("getting_started/texture/texture.vert", "getting_started/texture/texture.frag");
+	Shader ourShader("getting_started/transformations/transformations.vert", "getting_started/transformations/transformations.frag");
 
 
 	// Set up vertex data (and buffer(s)) and attribute pointers
@@ -96,7 +102,7 @@ int main()
 	GLuint texture[2];
 	glGenTextures(2, texture);
 	glBindTexture(GL_TEXTURE_2D, texture[0]); // All upcoming GL_TEXTURE_2D operations now have effect on this texture object
-										   // Set the texture wrapping parameters
+											  // Set the texture wrapping parameters
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// Set texture wrapping to GL_REPEAT (usually basic wrapping method)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 	// Set texture filtering parameters
@@ -117,11 +123,15 @@ int main()
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 	// Load image, create texture and generate mipmaps
-	image = SOIL_load_image("resource/container.jpg", &width, &height, 0, SOIL_LOAD_RGB);
+	image = SOIL_load_image("resource/awesomeface.png", &width, &height, 0, SOIL_LOAD_RGB);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
 	glGenerateMipmap(GL_TEXTURE_2D);
 	SOIL_free_image_data(image);
 	glBindTexture(GL_TEXTURE_2D, 0); // Unbind texture when done, so we won't accidentily mess up our texture.
+
+
+
+
 
 
 									 // Game loop
@@ -146,6 +156,12 @@ int main()
 		GLint rateLocation = glGetUniformLocation(ourShader.Program, "rate");
 		glUniform1f(rateLocation, mixValue);
 
+		glm::mat4 trans;
+		trans = glm::rotate(trans, (GLfloat)glfwGetTime() * glm::radians(50.0f), glm::vec3(0.0f, 0.0f, 1.0f));
+		trans = glm::translate(trans, glm::vec3(0.5f, -0.5f, 0.0f));
+		GLuint transformLoc = glGetUniformLocation(ourShader.Program, "transform");
+		glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));
+
 
 		// Activate shader
 		ourShader.Use();
@@ -154,6 +170,21 @@ int main()
 		glBindVertexArray(VAO);
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 		glBindVertexArray(0);
+
+
+		// Second transformation
+		// ===================
+		glm::mat4 transform = glm::mat4(); // Reset it to an identity matrix
+		transform = glm::translate(transform, glm::vec3(-0.5f, 0.5f, 0.0f));
+		GLfloat scaleAmount = sin(glfwGetTime());
+		transform = glm::scale(transform, glm::vec3(scaleAmount, scaleAmount, scaleAmount));
+		glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform));
+
+		// Now with the uniform matrix being replaced with new transformations, draw it again.
+		glBindVertexArray(VAO);
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+		glBindVertexArray(0);
+
 
 
 		// Swap the screen buffers

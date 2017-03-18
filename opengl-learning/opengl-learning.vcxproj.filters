@@ -30,15 +30,43 @@
     <ClCompile Include="getting_started\shader\shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="getting_started\transformations\transformations.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="getting_started\transformations\trans_test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="getting_started\coordinate_systems\coordinate_systems.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="getting_started\camera\camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lighting\color\color.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="getting_started\shader\shader.frag" />
     <None Include="getting_started\shader\shader.vert" />
     <None Include="getting_started\texture\texture.vert" />
     <None Include="getting_started\texture\texture.frag" />
+    <None Include="getting_started\transformations\transformations.vert" />
+    <None Include="getting_started\transformations\transformations.frag" />
+    <None Include="getting_started\coordinate_systems\coordinate_systems.vert" />
+    <None Include="getting_started\coordinate_systems\coordinate_systems.frag" />
+    <None Include="getting_started\camera\camera.vert" />
+    <None Include="getting_started\camera\camera.frag" />
+    <None Include="lighting\color\color.vert" />
+    <None Include="lighting\color\color.frag" />
+    <None Include="lighting\color\lamp.vert" />
+    <None Include="lighting\color\lamp.frag" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="shader.h">
+    <ClInclude Include="include\shader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\camera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

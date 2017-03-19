@@ -149,6 +149,7 @@
     <ClCompile Include="getting_started\texture\texture.cpp" />
     <ClCompile Include="getting_started\transformations\transformations.cpp" />
     <ClCompile Include="getting_started\transformations\trans_test.cpp" />
+    <ClCompile Include="lighting\basic_lighting\basic_lighting.cpp" />
     <ClCompile Include="lighting\color\color.cpp" />
     <ClCompile Include="test.cpp" />
   </ItemGroup>
@@ -163,6 +164,10 @@
     <None Include="getting_started\texture\texture.vert" />
     <None Include="getting_started\transformations\transformations.frag" />
     <None Include="getting_started\transformations\transformations.vert" />
+    <None Include="lighting\basic_lighting\lamp.frag" />
+    <None Include="lighting\basic_lighting\lamp.vert" />
+    <None Include="lighting\basic_lighting\lighting.frag" />
+    <None Include="lighting\basic_lighting\lighting.vert" />
     <None Include="lighting\color\color.frag" />
     <None Include="lighting\color\color.vert" />
     <None Include="lighting\color\lamp.frag" />

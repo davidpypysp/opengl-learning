@@ -81,7 +81,7 @@ public:
 			this->Position -= this->Right * velocity;
 		if (direction == RIGHT)
 			this->Position += this->Right * velocity;
-		this->Position.y = 0.0f; // <-- this one-liner keeps the user at the ground level (xz plane)
+		//this->Position.y = 0.0f; // <-- this one-liner keeps the user at the ground level (xz plane)
 	}
 
 	// Processes input received from a mouse input system. Expects the offset value in both the x and y direction.

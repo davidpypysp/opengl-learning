@@ -48,6 +48,15 @@
     <ClCompile Include="lighting\basic_lighting\basic_lighting.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="lighting\lighting_maps\lighting_maps.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lighting\light_casters\light_casters.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lighting\multiple_lights\multiple_lights.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="getting_started\shader\shader.frag" />
@@ -68,6 +77,18 @@
     <None Include="lighting\basic_lighting\lighting.frag" />
     <None Include="lighting\basic_lighting\lamp.vert" />
     <None Include="lighting\basic_lighting\lamp.frag" />
+    <None Include="lighting\lighting_maps\lighting.vert" />
+    <None Include="lighting\lighting_maps\lamp.frag" />
+    <None Include="lighting\lighting_maps\lamp.vert" />
+    <None Include="lighting\lighting_maps\lighting.frag" />
+    <None Include="lighting\light_casters\lighting.vert" />
+    <None Include="lighting\light_casters\lamp.frag" />
+    <None Include="lighting\light_casters\lamp.vert" />
+    <None Include="lighting\light_casters\lighting.frag" />
+    <None Include="lighting\multiple_lights\lamp.frag" />
+    <None Include="lighting\multiple_lights\lamp.vert" />
+    <None Include="lighting\multiple_lights\lighting.frag" />
+    <None Include="lighting\multiple_lights\lighting.vert" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\shader.h">

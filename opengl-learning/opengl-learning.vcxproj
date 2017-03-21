@@ -151,6 +151,9 @@
     <ClCompile Include="getting_started\transformations\trans_test.cpp" />
     <ClCompile Include="lighting\basic_lighting\basic_lighting.cpp" />
     <ClCompile Include="lighting\color\color.cpp" />
+    <ClCompile Include="lighting\lighting_maps\lighting_maps.cpp" />
+    <ClCompile Include="lighting\light_casters\light_casters.cpp" />
+    <ClCompile Include="lighting\multiple_lights\multiple_lights.cpp" />
     <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -172,6 +175,18 @@
     <None Include="lighting\color\color.vert" />
     <None Include="lighting\color\lamp.frag" />
     <None Include="lighting\color\lamp.vert" />
+    <None Include="lighting\lighting_maps\lamp.frag" />
+    <None Include="lighting\lighting_maps\lamp.vert" />
+    <None Include="lighting\lighting_maps\lighting.frag" />
+    <None Include="lighting\lighting_maps\lighting.vert" />
+    <None Include="lighting\light_casters\lamp.frag" />
+    <None Include="lighting\light_casters\lamp.vert" />
+    <None Include="lighting\light_casters\lighting.frag" />
+    <None Include="lighting\light_casters\lighting.vert" />
+    <None Include="lighting\multiple_lights\lamp.frag" />
+    <None Include="lighting\multiple_lights\lamp.vert" />
+    <None Include="lighting\multiple_lights\lighting.frag" />
+    <None Include="lighting\multiple_lights\lighting.vert" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\camera.h" />

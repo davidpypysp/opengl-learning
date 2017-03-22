@@ -87,8 +87,8 @@
     <None Include="lighting\light_casters\lighting.frag" />
     <None Include="lighting\multiple_lights\lamp.frag" />
     <None Include="lighting\multiple_lights\lamp.vert" />
-    <None Include="lighting\multiple_lights\lighting.frag" />
     <None Include="lighting\multiple_lights\lighting.vert" />
+    <None Include="lighting\multiple_lights\lighting.frag" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\shader.h">

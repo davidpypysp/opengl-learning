@@ -1,4 +1,4 @@
-#if 1
+#if 0
 
 #include <iostream>
 #include <cmath>
@@ -6,6 +6,7 @@
 // GLEW
 //#define GLEW_STATIC
 #include <GL/glew.h>
+#include <assimp/Importer.hpp>
 
 // GLFW
 #include <GLFW/glfw3.h>

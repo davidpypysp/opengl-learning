@@ -57,6 +57,9 @@
     <ClCompile Include="lighting\multiple_lights\multiple_lights.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="model_loading\model.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="getting_started\shader\shader.frag" />
@@ -89,12 +92,20 @@
     <None Include="lighting\multiple_lights\lamp.vert" />
     <None Include="lighting\multiple_lights\lighting.vert" />
     <None Include="lighting\multiple_lights\lighting.frag" />
+    <None Include="model_loading\model.frag" />
+    <None Include="model_loading\model.vert" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\shader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\mesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\model.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

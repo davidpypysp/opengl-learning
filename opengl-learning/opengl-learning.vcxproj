@@ -155,6 +155,7 @@
     <ClCompile Include="lighting\light_casters\light_casters.cpp" />
     <ClCompile Include="lighting\multiple_lights\multiple_lights.cpp" />
     <ClCompile Include="model_loading\model.cpp" />
+    <ClCompile Include="model_loading\model_lights\model_lights.cpp" />
     <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -190,6 +191,10 @@
     <None Include="lighting\multiple_lights\lighting.vert" />
     <None Include="model_loading\model.frag" />
     <None Include="model_loading\model.vert" />
+    <None Include="model_loading\model_lights\lamp.frag" />
+    <None Include="model_loading\model_lights\lamp.vert" />
+    <None Include="model_loading\model_lights\lighting.frag" />
+    <None Include="model_loading\model_lights\lighting.vert" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\camera.h" />

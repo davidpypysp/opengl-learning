@@ -17,6 +17,7 @@ using namespace std;
 #include <assimp/postprocess.h>
 
 #include "mesh.h"
+#include "shader.h"
 
 GLint TextureFromFile(const char* path, string directory);
 

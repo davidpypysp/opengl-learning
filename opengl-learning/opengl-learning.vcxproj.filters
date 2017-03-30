@@ -60,6 +60,9 @@
     <ClCompile Include="model_loading\model.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="model_loading\model_lights\model_lights.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="getting_started\shader\shader.frag" />
@@ -94,6 +97,10 @@
     <None Include="lighting\multiple_lights\lighting.frag" />
     <None Include="model_loading\model.frag" />
     <None Include="model_loading\model.vert" />
+    <None Include="model_loading\model_lights\lamp.frag" />
+    <None Include="model_loading\model_lights\lamp.vert" />
+    <None Include="model_loading\model_lights\lighting.frag" />
+    <None Include="model_loading\model_lights\lighting.vert" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\shader.h">

@@ -1,4 +1,4 @@
-#if 0
+#if 1
 
 // Std. Includes
 #include <string>
@@ -24,7 +24,7 @@
 #include <SOIL/SOIL.h>
 
 // Properties
-GLuint screenWidth = 800, screenHeight = 600;
+GLuint screenWidth = 1600, screenHeight = 900;
 
 // Function prototypes
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
@@ -73,13 +73,46 @@ int main()
 	glEnable(GL_DEPTH_TEST);
 
 	// Setup and compile our shaders
-	Shader shader("model_loading/model.vert", "model_loading/model.frag");
+	Shader shader("model_loading/model_lights/lighting.vert", "model_loading/model_lights/lighting.frag");
+
 
 	// Load models
 	Model ourModel("resource/nanosuit/nanosuit.obj");
 
 	// Draw in wireframe
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+
+	shader.Use();
+	// Directional light
+	glUniform3f(glGetUniformLocation(shader.Program, "dirLight.direction"), -0.2f, -1.0f, -0.3f);
+	glUniform3f(glGetUniformLocation(shader.Program, "dirLight.ambient"), 0.2f, 0.2f, 0.2f);
+	glUniform3f(glGetUniformLocation(shader.Program, "dirLight.diffuse"), 0.6f, 0.6f, 0.6f);
+	glUniform3f(glGetUniformLocation(shader.Program, "dirLight.specular"), 0.8f, 0.8f, 0.8f);
+
+	// Point light
+	glm::vec3 pointLightPositions[] = {
+		glm::vec3(0.7f,  0.2f,  2.0f),
+		glm::vec3(2.3f, -3.3f, -4.0f),
+		glm::vec3(-4.0f,  2.0f, -12.0f),
+		glm::vec3(0.0f,  0.0f, -3.0f)
+	};
+	for (int i = 0; i < 4; i++) {
+		glUniform3f(glGetUniformLocation(shader.Program, ("pointLights[" + std::to_string(i) + "].position").c_str()), pointLightPositions[i].x, pointLightPositions[i].y, pointLightPositions[i].z);
+		glUniform3f(glGetUniformLocation(shader.Program, ("pointLights[" + std::to_string(i) + "].ambient").c_str()), 0.05f, 0.05f, 0.05f);
+		glUniform3f(glGetUniformLocation(shader.Program, ("pointLights[" + std::to_string(i) + "].diffuse").c_str()), 0.8f, 0.8f, 0.8f);
+		glUniform3f(glGetUniformLocation(shader.Program, ("pointLights[" + std::to_string(i) + "].specular").c_str()), 1.0f, 1.0f, 1.0f);
+		glUniform1f(glGetUniformLocation(shader.Program, ("pointLights[" + std::to_string(i) + "].constant").c_str()), 1.0f);
+		glUniform1f(glGetUniformLocation(shader.Program, ("pointLights[" + std::to_string(i) + "].linear").c_str()), 0.09);
+		glUniform1f(glGetUniformLocation(shader.Program, ("pointLights[" + std::to_string(i) + "].quadratic").c_str()), 0.032);
+	}
+
+
+
+
+
+	// Set material shininess
+	glUniform1f(glGetUniformLocation(shader.Program, "material.shininess"), 16.0f);
+
 
 	// Game loop
 	while (!glfwWindowShouldClose(window))
@@ -109,6 +142,23 @@ int main()
 		model = glm::translate(model, glm::vec3(0.0f, -1.75f, 0.0f)); // Translate it down a bit so it's at the center of the scene
 		model = glm::scale(model, glm::vec3(0.2f, 0.2f, 0.2f));	// It's a bit too big for our scene, so scale it down
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+
+		glUniform3f(glGetUniformLocation(shader.Program, "viewPos"), camera.Position.x, camera.Position.y, camera.Position.z);
+
+
+		// Spot light
+		glUniform3f(glGetUniformLocation(shader.Program, "spotLight.position"), camera.Position.x, camera.Position.y, camera.Position.z);
+		glUniform3f(glGetUniformLocation(shader.Program, "spotLight.direction"), camera.Front.x, camera.Front.y, camera.Front.z);
+		glUniform1f(glGetUniformLocation(shader.Program, "spotLight.cutOff"), glm::cos(glm::radians(12.5f)));
+		glUniform1f(glGetUniformLocation(shader.Program, "spotLight.outerCutOff"), glm::cos(glm::radians(17.5f)));
+		glUniform3f(glGetUniformLocation(shader.Program, "spotLight.ambient"), 0.3f, 0.3f, 0.3f);
+		glUniform3f(glGetUniformLocation(shader.Program, "spotLight.diffuse"), 0.0f, 0.5f, 0.5f);
+		glUniform3f(glGetUniformLocation(shader.Program, "spotLight.specular"), 1.0f, 1.0f, 1.0f);
+		glUniform1f(glGetUniformLocation(shader.Program, "spotLight.constant"), 1.0f);
+		glUniform1f(glGetUniformLocation(shader.Program, "spotLight.linear"), 0.09);
+		glUniform1f(glGetUniformLocation(shader.Program, "spotLight.quadratic"), 0.032);
+
+
 		ourModel.Draw(shader);
 
 		// Swap the buffers

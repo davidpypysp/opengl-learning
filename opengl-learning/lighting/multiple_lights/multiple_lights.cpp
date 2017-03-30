@@ -253,9 +253,7 @@ int main()
 
 
 		// Material setting
-		GLint matSpecularLoc = glGetUniformLocation(lightingShader.Program, "material.specular");
 		GLint matShineLoc = glGetUniformLocation(lightingShader.Program, "material.shininess");
-		glUniform3f(matSpecularLoc, 0.5f, 0.5f, 0.5f);
 		glUniform1f(matShineLoc, 32.0f);
 
 		// Directional light
